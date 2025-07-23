@@ -7,14 +7,37 @@
 </head>
 <body>
 
+  <!-- Bandeau promo multicolore avec compte à rebours -->
+  <div style="width:100vw;min-height:54px;display:flex;align-items:center;justify-content:center;font-size:2em;font-weight:bold;letter-spacing:1px;text-shadow:1px 1px 8px #000;background:linear-gradient(90deg,#ff3366 0%,#ff9900 20%,#00e0ff 40%,#00ff99 60%,#ffeb3b 80%,#ff3366 100%);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.10);border-bottom:4px solid #fff;z-index:100;position:relative;gap:32px;">
+    <span>🎉 Promo 10% sur tout le site !</span>
+    <span id="countdown" style="font-size:0.9em;font-weight:600;background:rgba(0,0,0,0.18);padding:8px 18px;border-radius:8px;color:#fff;box-shadow:0 1px 6px #0003;letter-spacing:2px;"></span>
+  </div>
+
 
   <!-- Hero fullscreen background with fixed buttons -->
   <div style="position:relative;width:100vw;height:100vh;overflow:hidden;margin:0;padding:0;background:#000;">
-    <img src="acceuil.jpg" alt="Accueil" style="position:absolute;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:1;">
+    <img src="acceuil vastan.jpg" alt="Accueil" style="position:absolute;top:0;left:0;width:100vw;height:100vh;object-fit:contain;z-index:1;max-width:100vw;max-height:100vh;background:#000;display:block;margin:auto;">
+  <script>
+    // Définir la date de fin à 48h après la publication (date actuelle)
+    const countdownElem = document.getElementById('countdown');
+    const start = new Date();
+    const end = new Date(start.getTime() + 48 * 60 * 60 * 1000);
+    function updateCountdown() {
+      const now = new Date();
+      let diff = end - now;
+      if (diff < 0) diff = 0;
+      const h = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, '0');
+      const m = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+      const s = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+      countdownElem.textContent = `⏳ Offre valable : ${h}h ${m}m ${s}s`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
     <div style="position:absolute;top:40px;left:0;width:100vw;display:flex;justify-content:center;gap:32px;z-index:2;">
-      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="background:linear-gradient(90deg,#ff9900 60%,#ff3366 100%);color:#fff;font-size:1.1em;font-weight:bold;padding:16px 38px;border-radius:12px;box-shadow:0 2px 8px rgba(255,153,0,0.10);border:none;">Accueil</button>
-      <button onclick="document.querySelector('.produits')?.scrollIntoView({behavior:'smooth'})" style="background:linear-gradient(90deg,#131c34 60%,#ff9900 100%);color:#fff;font-size:1.1em;font-weight:bold;padding:16px 38px;border-radius:12px;box-shadow:0 2px 8px rgba(51,28,52,0.10);border:none;">Produits</button>
-      <button onclick="window.open('https://wa.me/21652860735','_blank')" style="background:linear-gradient(90deg,#ff3366 60%,#ff9900 100%);color:#fff;font-size:1.1em;font-weight:bold;padding:16px 38px;border-radius:12px;box-shadow:0 2px 8px rgba(255,153,0,0.10);border:none;">Contact</button>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="background:linear-gradient(90deg,#ff9900 60%,#ff3366 100%);color:#fff;font-size:1.1em;font-weight:bold;padding:16px 38px;border-radius:12px;box-shadow:0 2px 8px rgba(255,153,0,0.10);border:none;z-index:3;">Accueil</button>
+      <button onclick="document.querySelector('.produits')?.scrollIntoView({behavior:'smooth'})" style="background:linear-gradient(90deg,#131c34 60%,#ff9900 100%);color:#fff;font-size:1.1em;font-weight:bold;padding:16px 38px;border-radius:12px;box-shadow:0 2px 8px rgba(51,28,52,0.10);border:none;z-index:3;">Produits</button>
+      <button onclick="window.open('https://wa.me/21652860735','_blank')" style="background:linear-gradient(90deg,#ff3366 60%,#ff9900 100%);color:#fff;font-size:1.1em;font-weight:bold;padding:16px 38px;border-radius:12px;box-shadow:0 2px 8px rgba(255,153,0,0.10);border:none;z-index:3;">Contact</button>
     </div>
   </div>
 
@@ -23,27 +46,34 @@
     <section class="produits" style="margin-top:32px;">
       <!-- Produit 1 : apple Watch -->
       <div class="produit" id="apple-watch">
-        <img src="smart watch.jfif" alt="apple Watch" style="width:220px;height:220px;object-fit:cover;border-radius:16px;box-shadow:0 2px 12px rgba(255,153,0,0.10);">
+        <img src="smart watch.jfif" alt="apple Watch">
         <h3>apple Watch</h3>
-        <p>199 DT</p>
-        <button onclick="ajouterAuPanier('apple watch', 75)">Ajouter au panier</button>
+        <p>180 DT</p>
+
       </div>
 
       <!-- Produit 2 : Maillot Messi -->
     <div id="vetements"></div>
       <div class="produit">
-        <img src="pull messi argentine taille s.jfif" alt="Maillot Messi Argentine" style="width:220px;height:220px;object-fit:cover;border-radius:16px;box-shadow:0 2px 12px rgba(255,153,0,0.10);">
+        <img src="pull messi argentine taille s.jfif" alt="Maillot Messi Argentine">
         <h3>Maillot Messi - Argentine</h3>
-        <p>45 DT</p>
-        <button onclick="ajouterAuPanier('Maillot Messi Argentine', 45)">Ajouter au panier</button>
+        <p> 40 DT</p>
+
       </div>
 
       <!-- Produit 3 : Maillot Ronaldinho -->
       <div class="produit">
-        <img src="pull ronaldinho brezil taille s.jfif" alt="Maillot Ronaldinho Brésil" style="width:220px;height:220px;object-fit:cover;border-radius:16px;box-shadow:0 2px 12px rgba(255,153,0,0.10);">
+        <img src="pull ronaldinho brezil taille s.jfif" alt="Maillot Ronaldinho Brésil">
         <h3>Maillot Ronaldinho - Brésil</h3>
-        <p>40 DT</p>
-        <button onclick="ajouterAuPanier('Maillot Ronaldinho Brésil', 40)">Ajouter au panier</button>
+        <p>36 DT</p>
+
+      </div>
+
+      <!-- Produit 4 : Maillot CSS Meher Hannachi -->
+      <div class="produit">
+        <img src="maillot css mmeher hannachi original taille s.jpg" alt="Maillot CSS Meher Hannachi">
+        <h3>Maillot CSS - Meher Hannachi</h3>
+        <p>54 DT</p>
       </div>
     </section>
 
