@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vastan Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <!-- Hero fullscreen background with fixed buttons -->
+  <div style="position:relative;width:100vw;height:100vh;overflow:hidden;margin:0;padding:0;background:#000;">
+    <img src="acceuil.jpg" alt="Accueil" style="position:absolute;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:1;">
+    <div style="position:absolute;top:40px;left:0;width:100vw;display:flex;justify-content:center;gap:32px;z-index:2;">
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" style="background:linear-gradient(90deg,#ff9900 60%,#ff3366 100%);color:#fff;font-size:1.1em;font-weight:bold;padding:16px 38px;border-radius:12px;box-shadow:0 2px 8px rgba(255,153,0,0.10);border:none;">Accueil</button>
+      <button onclick="document.querySelector('.produits')?.scrollIntoView({behavior:'smooth'})" style="background:linear-gradient(90deg,#131c34 60%,#ff9900 100%);color:#fff;font-size:1.1em;font-weight:bold;padding:16px 38px;border-radius:12px;box-shadow:0 2px 8px rgba(51,28,52,0.10);border:none;">Produits</button>
+      <button onclick="window.open('https://wa.me/21652860735','_blank')" style="background:linear-gradient(90deg,#ff3366 60%,#ff9900 100%);color:#fff;font-size:1.1em;font-weight:bold;padding:16px 38px;border-radius:12px;box-shadow:0 2px 8px rgba(255,153,0,0.10);border:none;">Contact</button>
+    </div>
+  </div>
+
+
+  <main>
+    <section class="produits" style="margin-top:32px;">
+      <!-- Produit 1 : apple Watch -->
+      <div class="produit" id="apple-watch">
+        <img src="smart watch.jfif" alt="apple Watch" style="width:220px;height:220px;object-fit:cover;border-radius:16px;box-shadow:0 2px 12px rgba(255,153,0,0.10);">
+        <h3>apple Watch</h3>
+        <p>199 DT</p>
+        <button onclick="ajouterAuPanier('apple watch', 75)">Ajouter au panier</button>
+      </div>
+
+      <!-- Produit 2 : Maillot Messi -->
+    <div id="vetements"></div>
+      <div class="produit">
+        <img src="pull messi argentine taille s.jfif" alt="Maillot Messi Argentine" style="width:220px;height:220px;object-fit:cover;border-radius:16px;box-shadow:0 2px 12px rgba(255,153,0,0.10);">
+        <h3>Maillot Messi - Argentine</h3>
+        <p>45 DT</p>
+        <button onclick="ajouterAuPanier('Maillot Messi Argentine', 45)">Ajouter au panier</button>
+      </div>
+
+      <!-- Produit 3 : Maillot Ronaldinho -->
+      <div class="produit">
+        <img src="pull ronaldinho brezil taille s.jfif" alt="Maillot Ronaldinho Brésil" style="width:220px;height:220px;object-fit:cover;border-radius:16px;box-shadow:0 2px 12px rgba(255,153,0,0.10);">
+        <h3>Maillot Ronaldinho - Brésil</h3>
+        <p>40 DT</p>
+        <button onclick="ajouterAuPanier('Maillot Ronaldinho Brésil', 40)">Ajouter au panier</button>
+      </div>
+    </section>
+
+    <section class="panier">
+      <h2>🛒 Mon Panier</h2>
+      <ul id="liste-panier"></ul>
+      <p>Total : <span id="total">0</span> DT</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Vastan.store</p>
+
+  <footer style="width:100%;background:#131c34;color:#fff;text-align:center;padding:32px 0;font-size:1.3em;letter-spacing:1px;margin-top:48px;">
+    Merci de votre visite et à bientôt sur notre boutique !
+  </footer>
+</body>
+</html>
+<a href="https://wa.me/21652860735" target="_blank">📩 Contacter via WhatsApp</a>
+<a href="https://wa.me/216xxxxxxxx?text=Je veux commander le Maillot Messi - Argentine" target="_blank">
+  Commander sur WhatsApp
+</a>
